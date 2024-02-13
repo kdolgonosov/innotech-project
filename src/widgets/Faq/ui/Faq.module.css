@@ -23,7 +23,7 @@
 
     margin-bottom: 27px;
 }
-li:nth-of-type(1):before {
+.faq li:nth-of-type(1):before {
     content: '';
     position: absolute;
     top: 0;

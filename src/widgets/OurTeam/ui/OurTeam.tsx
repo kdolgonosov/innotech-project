@@ -13,8 +13,8 @@ export const OurTeam = (props: Props) => {
     return (
         <section className={styles.ourteam}>
             <SectionLayout>
-                <div className={styles.ourteam_decor}></div>
                 <h2 className={styles.title}>Our team</h2>
+                <div className={styles.ourteam_decor}></div>
                 <ul className={styles.grid}>
                     <li className={styles.grid_item}>
                         <div className={styles.grid_item_span_container}>
