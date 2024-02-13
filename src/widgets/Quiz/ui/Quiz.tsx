@@ -1,9 +1,8 @@
 import styles from './Quiz.module.css';
-import { SectionLayout } from 'shared/ui';
+import { SectionLayout, Button, Checkbox } from 'shared/ui';
 import OptionImg from '../../../assets/quiz-sneakers.jpg';
-type Props = {};
 
-export const Quiz = (props: Props) => {
+export const Quiz = () => {
     const options = [
         { title: 'sneakers', img: OptionImg },
         { title: 'sneakers', img: OptionImg },
@@ -33,31 +32,14 @@ export const Quiz = (props: Props) => {
                                         alt={option.title}
                                         className={styles.question_option_list_item_img}
                                     />
-                                    <div
-                                        className={
-                                            styles.question_option_list_item_checkbox_wrapper
-                                        }
-                                    >
-                                        <input
-                                            type='checkbox'
-                                            name={option.title}
-                                            id={option.title}
-                                            className={styles.question_option_list_item_checkbox}
-                                        />
-                                        <label
-                                            htmlFor={option.title}
-                                            className={styles.question_option_list_item_label}
-                                        >
-                                            {option.title}
-                                        </label>
-                                    </div>
+                                    <Checkbox title={option.title} value={option.title} />
                                 </li>
                             ))}
                         </ul>
                     </div>
                     <div className={styles.quiz_footer}>
                         <span className={styles.quiz_footer_count}>1 of 3</span>
-                        <button className={styles.quiz_footer_button}>Next step</button>
+                        <Button type='ghost' title='Next step' />
                     </div>
                 </div>
             </SectionLayout>

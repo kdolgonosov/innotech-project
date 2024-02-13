@@ -1,6 +1,6 @@
 .quiz {
     color: var(--text-color);
-    padding: 60px 0;
+    padding: 60px 0 55px;
 }
 
 .wrapper {
@@ -66,39 +66,7 @@
     height: 120px;
     border-radius: 4px;
     object-fit: cover;
-}
-.question_option_list_item_checkbox_wrapper {
-    margin-top: 10px;
-    display: flex;
-    flex-direction: row;
-    align-items: flex-end;
-}
-.question_option_list_item_checkbox {
-    appearance: none;
-    width: 24px;
-    height: 24px;
-    border-radius: 4px;
-    background-color: var(--sec-bg-color);
-    border: 1px solid var(--small-text-color);
-    display: flex;
-    align-content: center;
-    justify-content: center;
-    margin-right: 10px;
-}
-.question_option_list_item_checkbox:hover {
-    cursor: pointer;
-}
-.question_option_list_item_checkbox::before {
-    display: none;
-    content: '\2713';
-    font-size: 24px;
-}
-.question_option_list_item_checkbox:checked::before {
-    display: inline;
-}
-.question_option_list_item_label {
-    font-size: 16px;
-    font-weight: 600;
+    margin-bottom: 10px;
 }
 .quiz_footer {
     position: relative;

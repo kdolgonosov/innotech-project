@@ -2,13 +2,30 @@
     color: #fff;
     border: 0;
     border-radius: 4px;
-    padding: 22px 47px;
     font-size: 16px;
     line-height: 23px;
     font-weight: 400;
-    background-color: var(--accent-color);
     transition: opacity 0.4s ease;
     z-index: 1;
+}
+.button_type_accent {
+    padding: 22px 47px;
+    background-color: var(--accent-color);
+}
+.button_type_gray {
+    padding: 22px 99.5px;
+    background-color: var(--text-color);
+}
+.button_type_ghost {
+    padding: 13.5px 42px;
+    background-color: transparent;
+    border: 1px solid var(--text-color);
+    color: var(--text-color);
+}
+.button_type_clear {
+    color: var(--text-color);
+    padding: 0;
+    background-color: transparent;
 }
 .button:hover {
     cursor: pointer;

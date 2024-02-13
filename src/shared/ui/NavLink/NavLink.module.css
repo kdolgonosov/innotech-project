@@ -1,5 +1,7 @@
 .nav_list_item {
     margin-right: 37px;
+    transition: opacity 0.4s ease;
+    list-style: none;
 }
 @media (max-width: 1280px) {
     .nav_list_item {
@@ -11,6 +13,10 @@
         margin-right: 0px;
         margin-bottom: 5px;
     }
+}
+.nav_list_item:hover {
+    cursor: pointer;
+    opacity: 0.85;
 }
 .nav_list_item:last-of-type {
     margin-right: 0;

@@ -23,10 +23,12 @@ export const OurTeam = (props: Props) => {
                         </div>
                         <img
                             src={Team1}
-                            alt=''
+                            alt='Team member photo'
                             className={styles.grid_item_img}
                             width='380'
                             height='400'
+                            loading='lazy'
+                            decoding='async'
                         />
                     </li>
                     <li className={styles.grid_item}>
@@ -36,10 +38,12 @@ export const OurTeam = (props: Props) => {
                         </div>
                         <img
                             src={Team2}
-                            alt=''
+                            alt='Team member photo'
                             className={styles.grid_item_img}
                             width='380'
                             height='400'
+                            loading='lazy'
+                            decoding='async'
                         />
                     </li>
                     <li className={styles.grid_item}>
@@ -49,10 +53,12 @@ export const OurTeam = (props: Props) => {
                         </div>
                         <img
                             src={Team3}
-                            alt=''
+                            alt='Team member photo'
                             className={styles.grid_item_img}
                             width='380'
                             height='400'
+                            loading='lazy'
+                            decoding='async'
                         />
                     </li>
                     <li className={styles.grid_item}>
@@ -62,10 +68,12 @@ export const OurTeam = (props: Props) => {
                         </div>
                         <img
                             src={Team4}
-                            alt=''
+                            alt='Team member photo'
                             className={styles.grid_item_img}
                             width='380'
                             height='400'
+                            loading='lazy'
+                            decoding='async'
                         />
                     </li>
                     <li className={styles.grid_item}>
@@ -75,10 +83,12 @@ export const OurTeam = (props: Props) => {
                         </div>
                         <img
                             src={Team5}
-                            alt=''
+                            alt='Team member photo'
                             className={styles.grid_item_img}
                             width='380'
                             height='400'
+                            loading='lazy'
+                            decoding='async'
                         />
                     </li>
                     <li className={styles.grid_item}>
@@ -88,10 +98,12 @@ export const OurTeam = (props: Props) => {
                         </div>
                         <img
                             src={Team6}
-                            alt=''
+                            alt='Team member photo'
                             className={styles.grid_item_img}
                             width='380'
                             height='400'
+                            loading='lazy'
+                            decoding='async'
                         />
                     </li>
                 </ul>

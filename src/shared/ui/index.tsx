@@ -4,3 +4,6 @@ export { NavLogo } from 'shared/ui/NavLogo/NavLogo';
 export { Button } from 'shared/ui/Button/Button';
 export { SectionLayout } from 'shared/ui/SectionLayout/SectionLayout';
 export { Citation } from 'shared/ui/Citation/Citation';
+export { Checkbox } from 'shared/ui/Checkbox/Checkbox';
+export { Accordion } from 'shared/ui/Accordion/Accordion';
+export { ProductCard } from 'shared/ui/ProductCard/ProductCard';

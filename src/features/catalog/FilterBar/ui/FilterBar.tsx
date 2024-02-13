@@ -1,4 +1,5 @@
 import styles from './FilterBar.module.css';
+import { Button } from 'shared/ui';
 const categories = [
     'smartphones',
     'laptops',
@@ -11,7 +12,7 @@ const categories = [
 ];
 export const FilterBar = () => {
     return (
-        <div className={styles.filter}>
+        <aside className={styles.filter}>
             <h3 className={styles.filter_title}>Selection by&nbsp;parameters</h3>
             <span className={styles.filter_categories_title}>Category</span>
             <ul className={styles.filter_categories_list}>
@@ -21,8 +22,8 @@ export const FilterBar = () => {
                     </li>
                 ))}
             </ul>
-            <button className={styles.filter_button_apply}>Apply</button>
-            <button className={styles.filter_button_reset}>Reset</button>
-        </div>
+            <Button type='gray' title='Apply' addStyle={{ margin: '32px 0 35px' }} />
+            <Button type='clear' title='Reset' />
+        </aside>
     );
 };

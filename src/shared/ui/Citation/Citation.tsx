@@ -1,8 +1,6 @@
-import React from 'react';
 import styles from './Citation.module.css';
-type Props = {};
 
-export const Citation = (props: Props) => {
+export const Citation = () => {
     return (
         <figure className={styles.figure}>
             <blockquote className={styles.blockquote}>

@@ -10,6 +10,11 @@
     margin-left: 25.2px;
     margin-left: 40px;
     margin-right: -13.68px;
+    transition: opacity 0.4s ease;
+}
+.cart_button:hover {
+    cursor: pointer;
+    opacity: 0.85;
 }
 .cart_count {
     position: absolute;
