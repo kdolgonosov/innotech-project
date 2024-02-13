@@ -13,7 +13,7 @@
     }
 }
 .nav_list_type_header_mob {
-    display: flex;
+    display: none;
     flex-direction: row;
     flex-wrap: wrap;
     z-index: 2;
@@ -24,6 +24,12 @@
 .nav_list_type_header_mob li {
     margin-right: 10px;
 }
+@media (max-width: 1024px) {
+    .nav_list_type_header_mob {
+        display: flex;
+    }
+}
+
 .burgerBtn {
     display: none;
     background-color: transparent;
