@@ -1,0 +1,55 @@
+.nav {
+    display: flex;
+}
+.nav_list {
+    display: flex;
+}
+@media (max-width: 1024px) {
+    .nav_list_type_header {
+        display: none;
+    }
+    .nav_list_type_footer {
+        flex-direction: column;
+    }
+}
+.nav_list_type_header_mob {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    z-index: 2;
+    position: absolute;
+    bottom: -60px;
+    right: 0;
+}
+.nav_list_type_header_mob li {
+    margin-right: 10px;
+}
+.burgerBtn {
+    display: none;
+    background-color: transparent;
+    border: 0;
+    padding: 0;
+    background-image: url(../../../../../public/images/burger-menu-icon.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 25px;
+    height: 25px;
+    transition: transform 0.4s ease;
+}
+.burgerBtn:hover {
+    cursor: pointer;
+}
+@media (max-width: 1024px) {
+    .burgerBtn {
+        display: block;
+    }
+}
+.cart {
+    display: flex;
+    margin-left: 56px;
+}
+@media (max-width: 1280px) {
+    .cart {
+        margin-left: 25px;
+    }
+}

@@ -1,0 +1,76 @@
+.filter {
+    background-color: var(--sec-bg-color);
+    width: 280px;
+    padding: 9px 20px 20px 20px;
+    display: flex;
+    flex-direction: column;
+}
+@media (max-width: 767px) {
+    .filter {
+        display: none;
+    }
+}
+.filter_title {
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 35px;
+    margin-bottom: 25px;
+}
+.filter_categories_title {
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 23px;
+}
+.filter_categories_list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+.filter_categories_list_item {
+    border: 1px solid #dbbba9;
+    text-align: center;
+    transition: background-color 0.4s ease;
+}
+.filter_categories_list_item:hover {
+    cursor: pointer;
+    background-color: #dbbba9;
+}
+.filter_categories_list_item_button {
+    color: var(--text-color);
+    background-color: transparent;
+    padding: 17px 0px;
+    border: 0;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 23px;
+}
+.filter_categories_list_item_button:hover {
+    cursor: pointer;
+}
+.filter_button_apply {
+    font-size: 16px;
+    line-height: 23.12px;
+    font-weight: 400;
+    color: #fff;
+    border: 0;
+    border-radius: 4px;
+    padding: 22px 99.5px;
+    background-color: var(--text-color);
+    margin: 32px 0 35px;
+    transition: opacity 0.4s ease;
+}
+.filter_button_apply:hover {
+    cursor: pointer;
+    opacity: 0.85;
+}
+.filter_button_reset {
+    color: var(--text-color);
+    background-color: transparent;
+    border: 0;
+    padding: 0;
+    align-self: center;
+    transition: opacity 0.4s ease;
+}
+.filter_button_reset:hover {
+    cursor: pointer;
+    opacity: 0.85;
+}

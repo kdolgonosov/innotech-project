@@ -1,0 +1,133 @@
+.quiz {
+    color: var(--text-color);
+    padding: 60px 0;
+}
+
+.wrapper {
+    padding: 40px 100px;
+    background-color: var(--sec-bg-color);
+    display: flex;
+    flex-direction: column;
+}
+@media (max-width: 767px) {
+    .wrapper {
+        padding: 15px 40px;
+    }
+}
+.title {
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 45px;
+}
+
+.subtitle {
+    position: relative;
+    color: #808080;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 23px;
+    margin-bottom: 20px;
+    margin: 8px 0 20px;
+}
+.subtitle::after {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    content: '';
+    width: 100%;
+    height: 1px;
+    background-color: var(--text-color);
+}
+.question_title {
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 37px;
+}
+.question_option_list {
+    margin: 8px 0 38px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 70px;
+    row-gap: 20px;
+}
+@media (max-width: 767px) {
+    .question_option_list {
+        grid-template-columns: repeat(1, 1fr);
+        justify-items: center;
+    }
+}
+.question_option_list_item {
+    display: flex;
+    flex-direction: column;
+    max-width: 280px;
+}
+.question_option_list_item_img {
+    width: 100%;
+    height: 120px;
+    border-radius: 4px;
+    object-fit: cover;
+}
+.question_option_list_item_checkbox_wrapper {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+}
+.question_option_list_item_checkbox {
+    appearance: none;
+    width: 24px;
+    height: 24px;
+    border-radius: 4px;
+    background-color: var(--sec-bg-color);
+    border: 1px solid var(--small-text-color);
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    margin-right: 10px;
+}
+.question_option_list_item_checkbox:hover {
+    cursor: pointer;
+}
+.question_option_list_item_checkbox::before {
+    display: none;
+    content: '\2713';
+    font-size: 24px;
+}
+.question_option_list_item_checkbox:checked::before {
+    display: inline;
+}
+.question_option_list_item_label {
+    font-size: 16px;
+    font-weight: 600;
+}
+.quiz_footer {
+    position: relative;
+    padding-top: 23px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.quiz_footer::before {
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: var(--text-color);
+}
+.quiz_footer_button {
+    background-color: transparent;
+    border: 1px solid var(--text-color);
+    color: var(--text-color);
+    border-radius: 4px;
+    padding: 13.5px 42px;
+}
+.quiz_footer_button:hover {
+    cursor: pointer;
+}
+.quiz_footer_count {
+    color: #808080;
+    font-size: 16px;
+    font-weight: 600px;
+}

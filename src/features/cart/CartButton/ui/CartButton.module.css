@@ -1,0 +1,27 @@
+.cart {
+    position: relative;
+}
+.cart_button {
+    background-color: transparent;
+    border: 0;
+    background-image: url('../../../../../public/images/cart-icon.svg');
+    width: 20px;
+    height: 15px;
+    margin-left: 25.2px;
+    margin-left: 40px;
+    margin-right: -13.68px;
+}
+.cart_count {
+    position: absolute;
+    text-align: center;
+    background-color: var(--accent-color);
+    width: 16px;
+    height: 14px;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 15px;
+    border-radius: 50%;
+    color: #fff;
+    right: -21.68px;
+    bottom: -3.5px;
+}

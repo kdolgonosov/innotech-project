@@ -1,0 +1,23 @@
+.catalog {
+    background-color: #fff;
+    color: var(--text-color);
+    padding: 54px 0 53px;
+}
+.title {
+    font-size: 30px;
+    line-height: 43px;
+    font-weight: 700;
+    margin-bottom: 33px;
+}
+.wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+@media (max-width: 767px) {
+    .wrapper {
+        flex-direction: column;
+        align-items: center;
+    }
+}

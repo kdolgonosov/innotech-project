@@ -1,0 +1,28 @@
+.header {
+    background-color: var(--bg-color);
+}
+.wrapper {
+    position: relative;
+    max-width: 1180px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0 5px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+}
+@media (max-width: 1280px) {
+    .wrapper {
+        max-width: 950px;
+    }
+}
+@media (max-width: 1024px) {
+    .wrapper {
+        max-width: 700px;
+    }
+}
+@media (max-width: 767px) {
+    .header {
+        padding: 0 25px;
+    }
+}

@@ -1,0 +1,12 @@
+.logo {
+    font-size: 30px;
+    line-height: 43px;
+    font-weight: 700;
+}
+@media (max-width: 767px) {
+    .logo {
+        font-size: 20px;
+        line-height: 33px;
+        font-weight: 700;
+    }
+}

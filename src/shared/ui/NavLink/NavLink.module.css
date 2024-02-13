@@ -1,0 +1,32 @@
+.nav_list_item {
+    margin-right: 37px;
+}
+@media (max-width: 1280px) {
+    .nav_list_item {
+        margin-right: 15px;
+    }
+}
+@media (max-width: 1024px) {
+    .nav_list_item {
+        margin-right: 0px;
+        margin-bottom: 5px;
+    }
+}
+.nav_list_item:last-of-type {
+    margin-right: 0;
+}
+@media (max-width: 1024px) {
+    .nav_list_item:last-of-type {
+        margin-bottom: 0px;
+    }
+}
+.nav_list_item_link {
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 600;
+}
+@media (max-width: 1280px) {
+    .nav_list_item_link {
+        font-size: 12px;
+    }
+}

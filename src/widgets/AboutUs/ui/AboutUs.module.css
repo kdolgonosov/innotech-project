@@ -1,0 +1,37 @@
+.aboutus {
+    background-color: var(--bg-color);
+    position: relative;
+    color: #fff;
+}
+.wrapper {
+    height: 580px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.title {
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 43.35px;
+    margin: 75px 0 7px;
+}
+.bgImg {
+    position: absolute;
+    bottom: 0;
+    left: 44%;
+    background-image: url(../../../../public/images/aboutus-bg-img.jpg);
+    background-repeat: no-repeat;
+    height: 580px;
+    width: 680px;
+    clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
+}
+.decor {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-image: url(../../../../public/images/aboutus-decor-2.svg);
+    background-repeat: no-repeat;
+    height: 550px;
+    width: 424px;
+    z-index: 0;
+}
