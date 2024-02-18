@@ -1,6 +1,8 @@
 import './index.css';
-import { MainPage } from 'pages/main';
-// import { Layout } from 'shared/ui';
+import { RouterProvider } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import appStore from './appStore';
+import { appRouter } from './appRouter';
 import { Header } from 'widgets/Header';
 import { Footer } from 'widgets/Footer';
 
@@ -8,9 +10,9 @@ export const App = () => {
     return (
         <>
             <Header />
-            {/* <Layout> */}
-            <MainPage />
-            {/* </Layout> */}
+            <Provider store={appStore}>
+                <RouterProvider router={appRouter()} />
+            </Provider>
             <Footer />
         </>
     );

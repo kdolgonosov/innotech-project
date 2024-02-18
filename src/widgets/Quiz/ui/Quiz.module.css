@@ -46,7 +46,7 @@
 .question_option_list {
     margin: 8px 0 38px;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     column-gap: 70px;
     row-gap: 20px;
 }

@@ -2,6 +2,7 @@
     background-color: var(--sec-bg-color);
     width: 280px;
     padding: 9px 20px 20px 20px;
+    margin-right: 20px;
     display: flex;
     flex-direction: column;
 }
@@ -42,7 +43,14 @@
     font-size: 16px;
     font-weight: 600;
     line-height: 23px;
+    width: 100%;
 }
 .filter_categories_list_item_button:hover {
     cursor: pointer;
+}
+.filter_categories_list_item_button_selected {
+    background-color: #dbbba9;
+}
+.filter_categories_list_item_button_selected:disabled:hover {
+    cursor: default;
 }

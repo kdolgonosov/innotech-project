@@ -4,7 +4,7 @@ import { Citation } from 'shared/ui';
 
 export const AboutUs = () => {
     return (
-        <section className={styles.aboutus}>
+        <section className={styles.aboutus} id='about-us'>
             <SectionLayout>
                 <div className={styles.wrapper}>
                     <h2 className={styles.title}>About us</h2>

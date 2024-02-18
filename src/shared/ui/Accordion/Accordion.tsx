@@ -13,13 +13,11 @@ export const Accordion = (props: Props) => {
             <div className={styles.header}>
                 <h3 className={styles.question}>{props.question}</h3>
                 <button
-                    className={`${styles.button}` + ' ' + `${isOpened && styles.button_opened}`}
+                    className={`${styles.button} ${isOpened && styles.button_opened}`}
                     onClick={() => setIsOpened(!isOpened)}
                 ></button>
             </div>
-            <p className={`${styles.answer}` + ' ' + `${isOpened && styles.answer_opened}`}>
-                {props.answer}
-            </p>
+            <p className={`${styles.answer} ${isOpened && styles.answer_opened}`}>{props.answer}</p>
         </li>
     );
 };

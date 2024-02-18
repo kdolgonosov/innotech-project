@@ -11,7 +11,7 @@ type Props = {};
 
 export const OurTeam = (props: Props) => {
     return (
-        <section className={styles.ourteam}>
+        <section className={styles.ourteam} id='our-team'>
             <SectionLayout>
                 <h2 className={styles.title}>Our team</h2>
                 <div className={styles.ourteam_decor}></div>
@@ -23,7 +23,7 @@ export const OurTeam = (props: Props) => {
                         </div>
                         <img
                             src={Team1}
-                            alt='Team member photo'
+                            alt='Team member'
                             className={styles.grid_item_img}
                             width='380'
                             height='400'
@@ -38,7 +38,7 @@ export const OurTeam = (props: Props) => {
                         </div>
                         <img
                             src={Team2}
-                            alt='Team member photo'
+                            alt='Team member'
                             className={styles.grid_item_img}
                             width='380'
                             height='400'
@@ -53,7 +53,7 @@ export const OurTeam = (props: Props) => {
                         </div>
                         <img
                             src={Team3}
-                            alt='Team member photo'
+                            alt='Team member'
                             className={styles.grid_item_img}
                             width='380'
                             height='400'
@@ -68,7 +68,7 @@ export const OurTeam = (props: Props) => {
                         </div>
                         <img
                             src={Team4}
-                            alt='Team member photo'
+                            alt='Team member'
                             className={styles.grid_item_img}
                             width='380'
                             height='400'
@@ -83,7 +83,7 @@ export const OurTeam = (props: Props) => {
                         </div>
                         <img
                             src={Team5}
-                            alt='Team member photo'
+                            alt='Team member'
                             className={styles.grid_item_img}
                             width='380'
                             height='400'
@@ -98,7 +98,7 @@ export const OurTeam = (props: Props) => {
                         </div>
                         <img
                             src={Team6}
-                            alt='Team member photo'
+                            alt='Team member'
                             className={styles.grid_item_img}
                             width='380'
                             height='400'

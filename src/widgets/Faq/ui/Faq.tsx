@@ -7,7 +7,7 @@ export const Faq = () => {
         { question: 'Question 2', answer: 'Long answer to the first question' },
     ];
     return (
-        <section className={styles.faq}>
+        <section className={styles.faq} id='faq'>
             <div className={styles.wrapper}>
                 <h2 className={styles.title}>FAQ</h2>
                 <ul className={styles.list}>
