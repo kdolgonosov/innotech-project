@@ -1,13 +1,18 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 export const categoryApi = createApi({
-    reducerPath: 'categoryApi',
-    baseQuery: fetchBaseQuery({ baseUrl: 'https://dummyjson.com/' }),
-    endpoints: (builder) => ({
-        getAllCategories: builder.query({
-            query: (arg: void) => 'products/categories',
-        }),
+  reducerPath: 'categoryApi',
+  baseQuery: fetchBaseQuery({ baseUrl: 'https://dummyjson.com/' }),
+  endpoints: (builder) => ({
+    getAllCategories: builder.query({
+      query: (arg: void) => 'products/categories',
     }),
+    getTopProductsByCategory: builder.query({
+      query: ({ category }: { category: string }) =>
+        `products/category/${category}`,
+    }),
+  }),
 });
 
-export const { useGetAllCategoriesQuery } = categoryApi;
+export const { useGetAllCategoriesQuery, useGetTopProductsByCategoryQuery } =
+  categoryApi;
