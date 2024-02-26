@@ -1,7 +1,7 @@
 import { useState, MouseEvent, KeyboardEvent, ChangeEvent } from 'react';
 import { useAppDispatch } from 'shared/model/hooks';
 import styles from './SearchBar.module.css';
-import { Button } from 'shared/ui';
+import { Button, Input } from 'shared/ui';
 import { setSearchString } from '../model/slice';
 import { useDebouncedCallback } from 'use-debounce';
 import { resetPage } from 'entities/catalog/ProductList/model/slice';
@@ -32,13 +32,13 @@ export const SearchBar = () => {
     };
     return (
         <div className={styles.searchBar}>
-            <input
+            <Input
                 type='text'
-                className={styles.input}
+                addStyle={{ flexGrow: '1', marginRight: '20px' }}
                 placeholder='Search by title'
                 value={inputValue}
                 onChange={handleChange}
-                onKeyUp={(e) => handleSearchByKeyboard(e)}
+                onKeyUp={handleSearchByKeyboard}
             />
             <Button type='accent' title='Search' onClick={(e) => handleSearchByButton(e)} />
         </div>

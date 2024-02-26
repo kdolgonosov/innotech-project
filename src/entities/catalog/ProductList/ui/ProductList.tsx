@@ -1,9 +1,10 @@
 import styles from './ProductList.module.css';
 import { Button, ProductCard } from 'shared/ui';
-import { useGetProductsQuery } from '../model/api';
+// import { useGetProductsQuery } from '../model/api';
+import { useGetProductsQuery } from 'shared/model/api';
 import { useAppDispatch, useAppSelector } from 'shared/model/hooks';
 import { incrementPage } from '../model/slice';
-import { IData } from '../model/interface';
+import { IData } from '../../../../shared/model/interface';
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
 

@@ -23,7 +23,7 @@ export const FilterBar = () => {
         dispatch(resetPage());
         setSelectedCategory('');
     };
-    if (error) return <p>Ошибка!</p>;
+    if (error) return <p>Error!</p>;
     return (
         <aside className={styles.filter}>
             <h3 className={styles.filter_title}>Selection by&nbsp;parameters</h3>
