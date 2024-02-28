@@ -9,7 +9,7 @@ type Props = {
 
 export const ProductCard = (props: Props) => {
     return (
-        <li className={styles.item}>
+        <li className={styles.item} data-testid='product-card'>
             <a href={`products/${props.id}`} className={styles.linkWrapper}>
                 <img src={props.img} alt={props.title} className={styles.img} />
                 <h4 className={styles.title}>{props.title}</h4>
