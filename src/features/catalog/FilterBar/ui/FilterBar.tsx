@@ -59,7 +59,7 @@ export const FilterBar = () => {
                 title='Apply'
                 addStyle={{ margin: '32px 0 35px' }}
                 onClick={(e) => handleSetFilter(e, selectedCategory)}
-                disabled={isLoading || isFetching}
+                disabled={isLoading || isFetching || !selectedCategory}
             />
             <Button
                 type='clear'
