@@ -9,25 +9,30 @@ import { searchStringSlice } from 'features/catalog/SearchBar/model/slice';
 import { productPageSlice } from 'entities/catalog/ProductList/model/slice';
 
 const rootReducerWithoutApi = combineReducers({
-    [filterSlice.name]: filterSlice.reducer,
-    [searchStringSlice.name]: searchStringSlice.reducer,
-    [productPageSlice.name]: productPageSlice.reducer,
+  [filterSlice.name]: filterSlice.reducer,
+  [searchStringSlice.name]: searchStringSlice.reducer,
+  [productPageSlice.name]: productPageSlice.reducer,
 });
 interface ExtendedRenderOptions extends Omit<RenderOptions, 'queries'> {
-    preloadedState?: Partial<RootState>;
-    store?: typeof appStore;
+  preloadedState?: Partial<RootState>;
+  store?: typeof appStore;
 }
 const appStore = configureStore({
-    reducer: rootReducerWithoutApi,
-    preloadedState: {},
+  reducer: rootReducerWithoutApi,
+  preloadedState: {},
 });
 export function renderWithProviders(
-    ui: React.ReactElement,
-    { preloadedState = {}, store = appStore, ...renderOptions }: ExtendedRenderOptions = {},
+  ui: React.ReactElement,
+  {
+    preloadedState,
+    store = appStore,
+    ...renderOptions
+  }: ExtendedRenderOptions = {},
 ) {
-    function Wrapper({ children }: PropsWithChildren<{}>): JSX.Element {
-        return <Provider store={store}>{children}</Provider>;
-    }
+  function Wrapper({ children }: PropsWithChildren<{}>): JSX.Element {
+    return <Provider store={store}>{children}</Provider>;
+  }
 
-    return { store, ...render(ui, { wrapper: Wrapper, ...renderOptions }) };
+  return { store, ...render(ui, { wrapper: Wrapper, ...renderOptions }) };
 }
+export type AppStore = typeof appStore;

@@ -7,13 +7,14 @@ import { Header } from 'widgets/Header';
 import { Footer } from 'widgets/Footer';
 
 export const App = () => {
-    return (
-        <>
-            <Header />
-            <Provider store={appStore}>
-                <RouterProvider router={appRouter()} />
-            </Provider>
-            <Footer />
-        </>
-    );
+  return (
+    <>
+      <Header />
+      {/* Паттерн: Provider pattern */}
+      <Provider store={appStore}>
+        <RouterProvider router={appRouter()} />
+      </Provider>
+      <Footer />
+    </>
+  );
 };
