@@ -1,8 +1,24 @@
 .item {
     list-style: none;
+    max-width: 280px;
+}
+.linkWrapper {
+    display: flex;
+    flex-direction: column;
+    color: #000;
+    text-decoration: none;
+    transition: all 0.4s ease;
+}
+.linkWrapper:hover {
+    background-color: var(--sec-bg-color);
+    box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2);
+    transform: scale(1.03);
 }
 .img {
     border-radius: 4px;
+    width: 280px;
+    height: 360px;
+    object-fit: cover;
 }
 .title {
     margin: 9px 0 4px;

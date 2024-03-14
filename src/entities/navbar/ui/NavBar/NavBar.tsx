@@ -1,25 +1,24 @@
 import styles from './NavBar.module.css';
 import { MouseEventHandler } from 'react';
 import { NavLink } from 'shared/ui';
-import { CartButton } from 'features/cart/CartButton';
 import { useState } from 'react';
 
 type Props = {
     type: 'header' | 'footer';
 };
 const navLinks = [
-    { title: 'Catalog', link: '#' },
-    { title: 'About us', link: '#' },
-    { title: 'Product selection', link: '#' },
-    { title: 'Our team', link: '#' },
-    { title: 'Shipping and payment', link: '#' },
-    { title: 'Contacts', link: '#' },
+    { title: 'Catalog', link: '#catalog' },
+    { title: 'About us', link: '#about-us' },
+    { title: 'Product selection', link: '#quiz' },
+    { title: 'Our team', link: '#our-team' },
+    { title: 'FAQ', link: '#faq' },
 ];
 export const NavBar = (props: Props) => {
     const [isMobMenuOpened, setIsMobMenuOpened] = useState(false);
     const handleOpenMobMenu: MouseEventHandler<HTMLButtonElement> = () => {
         setIsMobMenuOpened((prev) => !prev);
     };
+    const location = window.location.pathname;
     return (
         <>
             <nav className={styles.nav}>
@@ -37,15 +36,16 @@ export const NavBar = (props: Props) => {
                         }`
                     }
                 >
-                    {navLinks.map((navLink, i) => (
-                        <NavLink title={navLink.title} link={navLink.link} key={i} />
-                    ))}
-                    {props.type === 'header' && (
-                        <div className={styles.cart}>
-                            <NavLink title='Cart' link='#' />
-                            <CartButton count={1} />
-                        </div>
-                    )}
+                    {location === '/' &&
+                        navLinks.map((navLink, i) => (
+                            <NavLink title={navLink.title} link={navLink.link} key={i} />
+                        ))}
+                    {props.type === 'header' &&
+                        (location === '/' ? (
+                            <NavLink title='For staff' link='/products' />
+                        ) : (
+                            <NavLink title='Back to site' link='/' />
+                        ))}
                 </ul>
             </nav>
             {isMobMenuOpened && (

@@ -9,7 +9,7 @@ export const MainPage = () => {
     return (
         <>
             <Intro />
-            <Catalog />
+            <Catalog title='Catalog' filterBar={true} searchBar={false} />
             <AboutUs />
             <Quiz />
             <OurTeam />

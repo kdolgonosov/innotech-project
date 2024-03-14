@@ -6,6 +6,7 @@ type Props = {
     addStyle?: {
         [key: string]: string;
     };
+    onClick?: React.MouseEventHandler<HTMLButtonElement>;
 };
 
 export const Button = (props: Props) => {
@@ -24,8 +25,9 @@ export const Button = (props: Props) => {
 
     return (
         <button
-            className={`${styles.button}` + ' ' + `${setStyle(props.type)}`}
-            style={props?.addStyle}
+            className={`${styles.button} ${setStyle(props.type)}`}
+            style={props.addStyle}
+            onClick={props.onClick}
         >
             {props.title}
         </button>
