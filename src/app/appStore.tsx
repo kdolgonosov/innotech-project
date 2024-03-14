@@ -1,18 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { useDispatch } from 'react-redux';
-import { categoryApi } from 'shared/model/api';
 import { rootReducer } from './rootReducer';
-import { productsApi } from 'entities/catalog/ProductList/model/api';
-import { productApi } from 'widgets/ProductDetail/model/api';
 import { setupListeners } from '@reduxjs/toolkit/query';
+import { productsApi } from 'shared/model/api';
 
 const appStore = configureStore({
     reducer: rootReducer,
-    middleware: (getDefaultMiddleware) =>
-        getDefaultMiddleware()
-            .concat(categoryApi.middleware)
-            .concat(productsApi.middleware)
-            .concat(productApi.middleware),
+    middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(productsApi.middleware),
 });
 setupListeners(appStore.dispatch);
 export type AppDispatch = typeof appStore.dispatch;

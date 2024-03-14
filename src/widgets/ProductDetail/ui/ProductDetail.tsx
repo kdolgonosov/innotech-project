@@ -1,19 +1,30 @@
 import styles from './ProductDetail.module.css';
-import { SectionLayout } from 'shared/ui';
-import { useGetProductQuery } from '../model/api';
-
+import { Button, Input, SectionLayout } from 'shared/ui';
+import { useGetProductQuery, useUpdateProductMutation } from 'shared/model/api';
 import { Rating } from 'react-simple-star-rating';
 import ImageGallery from 'react-image-gallery';
 import './image-gallery.scss';
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
+import { useState, MouseEvent, ChangeEvent } from 'react';
+import { IProduct } from 'shared/model/interface';
 
 type Props = {
     id: string;
 };
 
 export const ProductDetail = (props: Props) => {
-    const { data, error, isLoading, isFetching } = useGetProductQuery({ id: props.id });
+    const [isEditing, setIsEditing] = useState(false);
+    const { data, error, isLoading, isFetching } = useGetProductQuery({
+        id: props.id,
+    });
+    const [formData, setFormData] = useState<Partial<IProduct>>({});
+    const handleChangeFormData = (e: ChangeEvent<HTMLInputElement>) => {
+        setFormData({
+            ...formData,
+            [e.target.name]: e.target.value,
+        });
+    };
 
     // Паттерн: адаптер
     const transformImages = (arr: string[]) => {
@@ -25,6 +36,14 @@ export const ProductDetail = (props: Props) => {
                 thumbnailClass: styles.sliderThumbnail,
             };
         });
+    };
+    const [
+        updateProduct,
+        { isLoading: isUpdating, isError: isUpdateError, isSuccess: isUpdateSuccess },
+    ] = useUpdateProductMutation();
+    const handleSaveProduct = (e: MouseEvent<HTMLButtonElement>) => {
+        updateProduct({ id: props.id, ...formData });
+        setIsEditing(false);
     };
     if (error) return <p>Ошибка!</p>;
     return (
@@ -91,7 +110,6 @@ export const ProductDetail = (props: Props) => {
                         </div>
                     </>
                 ) : (
-                    // <p>Loading</p>
                     <div className={styles.wrapper}>
                         <ImageGallery
                             items={transformImages(data.images)}
@@ -122,48 +140,215 @@ export const ProductDetail = (props: Props) => {
                                         />
                                     </span>
                                 </li>
-                                <li className={styles.techs_item}>
+                                <li
+                                    className={`${styles.techs_item} ${
+                                        isEditing && styles.techs_item_editing
+                                    }`}
+                                >
                                     <span className={styles.techs_item_title}>Base price</span>
-                                    <span className={styles.techs_item_text}>
-                                        {data.price}&#36;
-                                    </span>
+                                    {isEditing ? (
+                                        <Input
+                                            name='price'
+                                            type='number'
+                                            placeholder='Base price'
+                                            value={
+                                                formData.price !== undefined
+                                                    ? formData.price
+                                                    : data.price
+                                            }
+                                            onChange={handleChangeFormData}
+                                            addStyle={{ width: '384px' }}
+                                        />
+                                    ) : (
+                                        <span className={styles.techs_item_text}>
+                                            {data.price}
+                                            &#36;
+                                        </span>
+                                    )}
                                 </li>
-                                <li className={styles.techs_item}>
+                                <li
+                                    className={`${styles.techs_item} ${
+                                        isEditing && styles.techs_item_editing
+                                    }`}
+                                >
                                     <span className={styles.techs_item_title}>
                                         Discount percentage
                                     </span>
-                                    <span className={styles.techs_item_text}>
-                                        {Math.trunc(data.discountPercentage)}&#37;
-                                    </span>
+                                    {isEditing ? (
+                                        <Input
+                                            name='discountPercentage'
+                                            type='number'
+                                            placeholder='Discount percentage'
+                                            value={
+                                                formData.discountPercentage !== undefined
+                                                    ? formData.discountPercentage
+                                                    : data.discountPercentage
+                                            }
+                                            onChange={handleChangeFormData}
+                                            addStyle={{ width: '384px' }}
+                                        />
+                                    ) : (
+                                        <span className={styles.techs_item_text}>
+                                            {Math.trunc(data.discountPercentage)}&#37;
+                                        </span>
+                                    )}
                                 </li>
-                                <li className={styles.techs_item}>
+                                <li
+                                    className={`${styles.techs_item} ${
+                                        isEditing && styles.techs_item_editing
+                                    }`}
+                                >
                                     <span className={styles.techs_item_title}>Discount price</span>
-                                    <span className={styles.techs_item_text}>
-                                        {Math.trunc(
-                                            data.price * (1 - data.discountPercentage / 100),
-                                        )}
+                                    <span
+                                        className={`${styles.techs_item_text} ${styles.techs_item_text_type_percentage}`}
+                                    >
+                                        {isEditing
+                                            ? Math.trunc(
+                                                  (formData.price !== undefined
+                                                      ? formData.price
+                                                      : data.price) *
+                                                      (1 -
+                                                          (formData.discountPercentage !== undefined
+                                                              ? formData.discountPercentage
+                                                              : data.discountPercentage) /
+                                                              100),
+                                              )
+                                            : Math.trunc(
+                                                  data.price * (1 - data.discountPercentage / 100),
+                                              )}
                                         &#36;
                                     </span>
                                 </li>
-                                <li className={styles.techs_item}>
+                                <li
+                                    className={`${styles.techs_item} ${
+                                        isEditing && styles.techs_item_editing
+                                    }`}
+                                >
                                     <span className={styles.techs_item_title}>Stock</span>
-                                    <span className={styles.techs_item_text}>{data.stock}</span>
+                                    {isEditing ? (
+                                        <Input
+                                            name='stock'
+                                            type='number'
+                                            placeholder='Stock'
+                                            value={
+                                                formData.stock !== undefined
+                                                    ? formData.stock
+                                                    : data.stock
+                                            }
+                                            onChange={handleChangeFormData}
+                                            addStyle={{ width: '384px' }}
+                                        />
+                                    ) : (
+                                        <span className={styles.techs_item_text}>{data.stock}</span>
+                                    )}
                                 </li>
-                                <li className={styles.techs_item}>
+                                <li
+                                    className={`${styles.techs_item} ${
+                                        isEditing && styles.techs_item_editing
+                                    }`}
+                                >
                                     <span className={styles.techs_item_title}>Brand</span>
-                                    <span className={styles.techs_item_text}>{data.brand}</span>
+                                    {isEditing ? (
+                                        <Input
+                                            name='brand'
+                                            type='text'
+                                            placeholder='Brand'
+                                            value={
+                                                formData.brand !== undefined
+                                                    ? formData.brand
+                                                    : data.brand
+                                            }
+                                            onChange={handleChangeFormData}
+                                            addStyle={{ width: '384px' }}
+                                        />
+                                    ) : (
+                                        <span className={styles.techs_item_text}>{data.brand}</span>
+                                    )}
                                 </li>
-                                <li className={styles.techs_item}>
+                                <li
+                                    className={`${styles.techs_item} ${
+                                        isEditing && styles.techs_item_editing
+                                    }`}
+                                >
                                     <span className={styles.techs_item_title}>Category</span>
-                                    <span className={styles.techs_item_text}>{data.category}</span>
+                                    {isEditing ? (
+                                        <Input
+                                            name='category'
+                                            type='text'
+                                            placeholder='Category'
+                                            value={
+                                                formData.category !== undefined
+                                                    ? formData.category
+                                                    : data.category
+                                            }
+                                            onChange={handleChangeFormData}
+                                            addStyle={{ width: '384px' }}
+                                        />
+                                    ) : (
+                                        <span className={styles.techs_item_text}>
+                                            {data.category}
+                                        </span>
+                                    )}
                                 </li>
-                                <li className={styles.techs_item}>
+                                <li
+                                    className={`${styles.techs_item} ${
+                                        isEditing && styles.techs_item_editing
+                                    }`}
+                                >
                                     <span className={styles.techs_item_title}>Description</span>
-                                    <span className={styles.techs_item_text}>
-                                        {data.description}
-                                    </span>
+                                    {isEditing ? (
+                                        <Input
+                                            name='description'
+                                            type='text'
+                                            placeholder='Description'
+                                            value={
+                                                formData.description !== undefined
+                                                    ? formData.description
+                                                    : data.description
+                                            }
+                                            onChange={handleChangeFormData}
+                                            addStyle={{ width: '384px' }}
+                                        />
+                                    ) : (
+                                        <span className={styles.techs_item_text}>
+                                            {data.description}
+                                        </span>
+                                    )}
                                 </li>
                             </ul>
+
+                            {isEditing ? (
+                                <Button
+                                    type='accent'
+                                    title='Save'
+                                    addStyle={{ width: '300px', marginTop: '67px' }}
+                                    // disabled={isUpdating}
+                                    onClick={handleSaveProduct}
+                                />
+                            ) : (
+                                <Button
+                                    type='accent'
+                                    title='Edit'
+                                    addStyle={{ width: '300px', marginTop: '67px' }}
+                                    disabled={isUpdating}
+                                    onClick={() => setIsEditing(true)}
+                                />
+                            )}
+                            {isUpdating && <p className={styles.status_caption}>Обновление...</p>}
+                            {isUpdateError && !isEditing && (
+                                <p
+                                    className={`${styles.status_caption} ${styles.status_caption_type_error}`}
+                                >
+                                    Ошибка!
+                                </p>
+                            )}
+                            {isUpdateSuccess && !isEditing && (
+                                <p
+                                    className={`${styles.status_caption} ${styles.status_caption_type_success}`}
+                                >
+                                    Данные успешно сохранены
+                                </p>
+                            )}
                         </div>
                     </div>
                 )}

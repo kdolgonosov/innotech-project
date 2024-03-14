@@ -23,14 +23,16 @@ export const FilterBar = () => {
         dispatch(resetPage());
         setSelectedCategory('');
     };
-    if (error) return <p>Ошибка!</p>;
+    if (error) return <p>Error!</p>;
     return (
         <aside className={styles.filter}>
             <h3 className={styles.filter_title}>Selection by&nbsp;parameters</h3>
             <span className={styles.filter_categories_title}>Category</span>
             <ul className={styles.filter_categories_list}>
                 {isLoading || isFetching
-                    ? [...Array(20)].map((_, i) => <Skeleton key={i} height={60} width={120} />)
+                    ? [...Array(20)].map((_, i) => (
+                          <Skeleton key={i} height={60} width={120} containerTestId='skeleton' />
+                      ))
                     : !error &&
                       data.map((cat: string, i: number) => (
                           <li className={styles.filter_categories_list_item} key={i}>
@@ -45,6 +47,7 @@ export const FilterBar = () => {
                                   }
                                   onClick={() => setSelectedCategory(cat)}
                                   disabled={selected === cat}
+                                  data-testid='category-button'
                               >
                                   {cat}
                               </button>
@@ -56,8 +59,14 @@ export const FilterBar = () => {
                 title='Apply'
                 addStyle={{ margin: '32px 0 35px' }}
                 onClick={(e) => handleSetFilter(e, selectedCategory)}
+                disabled={isLoading || isFetching || !selectedCategory}
             />
-            <Button type='clear' title='Reset' onClick={(e) => handleResetFilter(e)} />
+            <Button
+                type='clear'
+                title='Reset'
+                onClick={(e) => handleResetFilter(e)}
+                disabled={isLoading || isFetching}
+            />
         </aside>
     );
 };

@@ -36,6 +36,7 @@
     background-color: #dbbba9;
 }
 .filter_categories_list_item_button {
+    height: 100%;
     color: var(--text-color);
     background-color: transparent;
     padding: 17px 0px;

@@ -1,36 +1,33 @@
 import styles from './Checkbox.module.css';
+import { ChangeEvent } from 'react';
 
 type Props = {
-    title: string;
-    value?: string | number;
+  title: string;
+  onClick: (e: ChangeEvent<HTMLInputElement>, value: string) => void;
+  value: string;
+  disabled?: boolean;
 };
 
 export const Checkbox = (props: Props) => {
-    // const setStyle = (type: 'accent' | 'gray' | 'ghost' | 'clear') => {
-    //     switch (type) {
-    //         case 'accent':
-    //             return styles.button_type_accent;
-    //         case 'gray':
-    //             return styles.button_type_gray;
-    //         case 'ghost':
-    //             return styles.button_type_ghost;
-    //         case 'clear':
-    //             return styles.button_type_clear;
-    //     }
-    // };
-
-    return (
-        <div className={styles.wrapper}>
-            <input
-                type='checkbox'
-                name={props.title}
-                id={props.title}
-                value={props.value}
-                className={styles.checkbox}
-            />
-            <label htmlFor={props.title} className={styles.label}>
-                {props.title}
-            </label>
-        </div>
-    );
+  return (
+    <div className={styles.wrapper}>
+      <input
+        type='checkbox'
+        name={props.title}
+        id={props.title}
+        value={props.value}
+        className={styles.checkbox}
+        disabled={props.disabled}
+        onChange={(e) => {
+          props.onClick(e, e.target.value);
+        }}
+      />
+      <label
+        htmlFor={props.title}
+        className={styles.label}
+      >
+        {props.title}
+      </label>
+    </div>
+  );
 };

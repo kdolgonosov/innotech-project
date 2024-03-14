@@ -41,6 +41,14 @@
 }
 .techs_item {
     margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+}
+.techs_item:last-of-type {
+    margin-bottom: 0;
+}
+.techs_item_editing {
+    justify-content: space-between;
 }
 .techs_item_title {
     color: var(--gray-color);
@@ -54,4 +62,17 @@
     font-size: 16px;
     font-weight: 600;
     line-height: 23px;
+}
+.techs_item_text_type_percentage {
+    width: 384px;
+}
+.status_caption {
+    margin-top: 12px;
+    font-size: 24px;
+}
+.status_caption_type_error {
+    color: var(--accent-color);
+}
+.status_caption_type_success {
+    color: green;
 }
