@@ -13,7 +13,7 @@ npm run start
 npm run test
 ```
 
-Приложение также развернуто на [vercel](https://innotech-project-git-stage-3-kdolgonosov.vercel.app?_vercel_share=AHgb19n9WPfpwZ5c1tPRSl06L1PMYM8b) (деплой ветки stage-3)
+Приложение также развернуто на [vercel](https://innotech-project.vercel.app)
 
 Storybook проекта:
 
