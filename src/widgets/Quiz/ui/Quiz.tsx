@@ -65,19 +65,19 @@ export const Quiz = () => {
                         />
                       ))
                     : !error &&
-                      data.map((option: string, i: number) => (
+                      data.map((option: any, i: number) => (
                         <li
                           key={i}
                           className={styles.question_option_list_item}
                         >
                           <Checkbox
-                            title={option}
-                            value={option}
+                            title={option.name}
+                            value={option.name}
                             onClick={handleCheckbox}
                             disabled={
                               selectedCategory === null
                                 ? false
-                                : selectedCategory === option
+                                : selectedCategory === option.name
                                 ? false
                                 : true
                             }

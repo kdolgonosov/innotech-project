@@ -6,14 +6,18 @@ import { OurTeam } from 'widgets/OurTeam';
 import { Faq } from 'widgets/Faq';
 
 export const MainPage = () => {
-    return (
-        <>
-            <Intro />
-            <Catalog title='Catalog' filterBar={true} searchBar={false} />
-            <AboutUs />
-            <Quiz />
-            <OurTeam />
-            <Faq />
-        </>
-    );
+  return (
+    <>
+      <Intro />
+      <Catalog
+        title='Catalog'
+        filterBar={true}
+        searchBar={false}
+      />
+      <AboutUs />
+      <Quiz />
+      <OurTeam />
+      <Faq />
+    </>
+  );
 };

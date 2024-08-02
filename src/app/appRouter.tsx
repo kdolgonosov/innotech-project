@@ -8,6 +8,7 @@ export const appRouter = () =>
     {
       path: '/',
       element: <MainPage />,
+      // element: <p>test</p>,
     },
     {
       path: 'products',
